@@ -2,20 +2,21 @@ set nu
 set smartindent
 set cursorline
 set ruler
-
 set nocompatible
+set relativenumber
 
 call plug#begin()
-" 
-Plug 'git@github.com:scrooloose/nerdtree'
+
+Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'git@github.com:nvim-lualine/lualine.nvim'
-Plug 'git@github.com:folke/tokyonight.nvim'
-Plug 'git@github.com:Yggdroot/indentLine'
-Plug 'git@github.com:majutsushi/tagbar'
-Plug 'git@github.com:ryanoasis/vim-devicons'
-call plug#end()     " required
-filetype plugin on    " required
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
+Plug 'ryanoasis/vim-devicons'
+
+call plug#end()
+filetype plugin on
 autocmd vimenter * NERDTree
 autocmd vimenter * TagbarToggle
 
@@ -28,5 +29,10 @@ set noswapfile
 
 set encoding=UTF-8
 
-colorscheme tokyonight-moon
+colorscheme tokyonight-night
+
+syn match WhiteSpace "\s\+$" containedin=ALL conceal cchar=*
+set conceallevel=2
+set concealcursor=nv
+highlight Conceal guifg=yellow
 
